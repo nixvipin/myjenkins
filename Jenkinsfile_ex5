@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    environment { 
+        CC = 'clang'
+    }
+    stages {
+        stage('Example') {
+            environment { 
+                AN_ACCESS_KEY = 'new-key' 
+            }
+            steps {
+               sh 'echo "Service user is $CC"'
+               sh 'echo "An Access key is $AN_ACCESS_KEY"'
+            }
+        }
+    }
+}
+
